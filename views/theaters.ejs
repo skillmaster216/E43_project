@@ -1,0 +1,58 @@
+<% include partials/_headers %>
+<div class = "container">
+    <div class = "row mt-5">
+        <div class = "col-md-7">
+            <table class = "table table-bordered tabler-hover">
+                <thead>
+                    <tr>
+                        <th>n°</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Films</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data){ %>
+                        <% for (let i = 0; i < data.length; i++){ %>
+                            <tr>
+                                <td><%= (i + 1)%></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].full_address %></td>
+                                <td><a href="/films/<%= data[i].theater_id %>" class="btn btn-info">films</a></td>
+                            </tr>
+                        <% }%>
+                    <%} %>
+                </tbody>
+            </table>
+        </div> 
+        <div class = "col-md-5"> 
+            <div class ="card">
+                <div class = "card-body">
+                    <form action = "/signup" method = "post">
+                        <div class = "form-group">
+                            <input type = "text" name = "first_name" placeholder = "First name" class = "form-control">
+                        </div>
+                        <div class = "form-group">
+                            <input type = "text" name = "last_name" placeholder = "Last name" class = "form-control">
+                        </div>
+                        <div class = "form-group">
+                            <input type = "text" name = "email" placeholder = "E-mail" class = "form-control">
+                        </div>
+                        <div class = "form-group">
+                            <input type = "text" name = "age" placeholder = "Age" class = "form-control">
+                        </div>
+                        <div class ="container">
+                                <button type = "submit" class = "btn btn-primary">
+                                        Sign-up
+                                    </button>
+                                    <a href="/login" class="btn btn-primary" role="button">Log-in</a>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/_footer %>

@@ -1,0 +1,29 @@
+<% include partials/_headers %>
+<div class = "container">
+    <div class = "row mt-5">
+        <div class = "col-md-7">
+            <table class = "table table-bordered tabler-hover">
+                <thead>
+                    <tr>
+                        <th>n°</th>
+                        <th>Name</th>
+                        <th>Avg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(data){ %>
+                        <%for (let i = 0; i < data.length; i++){ %>
+                            <tr>
+                                <td><%= (i + 1)%></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].score%></td>
+                            </tr>
+                        <% }%>
+                    <%} %>
+                </tbody>
+            </table>
+        </div> 
+    </div>
+</div>
+
+<% include partials/_footer %>
